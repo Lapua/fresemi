@@ -1,4 +1,4 @@
-#include "timeTable.h"
+﻿#include "timeTable.h"
 
 TimeTable::TimeTable(QWidget *parent)
     : QWidget(parent)
@@ -50,6 +50,8 @@ TimeTable::TimeTable(QWidget *parent)
     lec[2][2] -> setText("コン概論");
     lec[2][3] -> setText("英語RW");
     lec[2][4] -> setText("解析学");
+
+    connect(lec[0][0],SIGNAL(clicked()),this,SLOT(MainWindow::confShow()));
 
     setLayout(sheetLayout);
 }

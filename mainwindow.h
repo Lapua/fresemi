@@ -1,4 +1,4 @@
-#ifndef MAINWINDOW_H
+﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
@@ -12,6 +12,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 public:
     MainWindow();
+    void conf();
 
 private:
     TimeTable *timeTable;
@@ -25,9 +26,13 @@ private:
     void createMenu();
     void createAction();
 
+
 private slots:
     void timeTableShow();
     void boardShow();
+
+public slots:
+    static void confShow();
 };
 
 #endif // MAINWINDOW_H

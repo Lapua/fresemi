@@ -1,4 +1,4 @@
-#ifndef TIMETABLEDIA_H
+﻿#ifndef TIMETABLEDIA_H
 #define TIMETABLEDIA_H
 
 #include <QWidget>
@@ -16,12 +16,12 @@ private:
     QFormLayout *formLayout;
 
     QTextLine *subject;
-
     QLabel *noticeOFLabel;
     QCheckBox *noticeOF;
 
+    QHBoxLayout *noticeLayout;
     QSpinBox *spinBox;
-    QLabel *min;
+    QLabel *minLabel;
     QComboBox *comBox;
     QLabel *noticeLabel;
 };
