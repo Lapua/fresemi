@@ -13,6 +13,7 @@ TimeTable::TimeTable(QWidget *parent)
         sheetLayout -> addWidget(time[i],i+1,0);
     }
 
+    desktop = new QDesktopWidget;
     week[0] = new QLabel("月");
     week[1] = new QLabel("火");
     week[2] = new QLabel("水");
@@ -29,32 +30,26 @@ TimeTable::TimeTable(QWidget *parent)
     for(int i=0; i<5; i++){
         for(int j=0; j<5; j++){
             lec[i][j] = new QPushButton;
-            lec[i][j] -> setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Preferred);
+            lec[i][j] -> setFixedWidth((desktop -> width())/6);
+            lec[i][j] -> setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
             sheetLayout -> addWidget(lec[i][j],i+1,j+1);
         }
     }
 
-    sheetWidget = new QWidget;
-    sheetWidget -> setLayout(sheetLayout);
+    lec[0][0] -> setText("芸術論");
+    lec[1][0] -> setText(" 化学 ");
+    lec[2][0] -> setText("情報リ　");
+    lec[3][0] -> setText(" 通信 ");
+    lec[4][0] -> setText(" 通信 ");
+    lec[0][1] -> setText("英語SL");
+    lec[2][1] -> setText("線形代");
+    lec[3][1] -> setText("プ基礎");
+    lec[4][1] -> setText("プ基礎");
+    lec[0][2] -> setText(" 通信 ");
+    lec[1][2] -> setText("フレゼミ");
+    lec[2][2] -> setText("コン概論");
+    lec[2][3] -> setText("英語RW");
+    lec[2][4] -> setText("解析学");
 
-    /************************************/
-
-    ok = new QPushButton(tr("OK"));
-    cancel = new QPushButton(tr("Cancel"));
-    buttonLayout = new QHBoxLayout;
-    buttonLayout -> addWidget(ok);
-    buttonLayout -> addWidget(cancel);
-    configLayout = new QVBoxLayout;
-    configLayout -> addLayout(buttonLayout);
-    configWidget = new QWidget;
-    configWidget -> setLayout(configLayout);
-    configWidget -> setGeometry(0,0,100,100);
-
-    stackLayout = new QStackedLayout;
-    stackLayout -> addWidget(sheetWidget);
-    stackLayout -> addWidget(configWidget);
-    stackLayout -> setCurrentWidget(configWidget);
-    stackLayout -> setStackingMode(QStackedLayout::StackAll);
-
-    setLayout(stackLayout);
+    setLayout(sheetLayout);
 }

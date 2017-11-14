@@ -28,13 +28,15 @@ SOURCES += \
     map.cpp \
     timeTable.cpp \
     mainwindow.cpp \
-    board.cpp
+    board.cpp \
+    timetabledia.cpp
 
 HEADERS += \
     map.h \
     timeTable.h \
     mainwindow.h \
-    board.h
+    board.h \
+    timetabledia.h
 
 CONFIG += mobility
 MOBILITY = 
