@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = grid
+TARGET = TUTApplication
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -25,12 +25,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        grid.cpp \
-    map.cpp
+    map.cpp \
+    timeTable.cpp \
+    mainwindow.cpp \
+    board.cpp
 
 HEADERS += \
-        grid.h \
-    map.h
+    map.h \
+    timeTable.h \
+    mainwindow.h \
+    board.h
 
 CONFIG += mobility
 MOBILITY = 
