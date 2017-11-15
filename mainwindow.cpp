@@ -4,7 +4,7 @@ MainWindow::MainWindow()
 {
     setWindowTitle(tr("TUT Application"));
     timeTable = new TimeTable;
-    timeTableDia = new TimeTableDia;
+    //timeTableDia = new TimeTableDia;
     board = new Board;
     setCentralWidget(timeTable);
 
@@ -33,13 +33,4 @@ void MainWindow::timeTableShow(){
 void MainWindow::boardShow(){
     takeCentralWidget();
     setCentralWidget(board);
-}
-
-void MainWindow::conf(){
-    takeCentralWidget();
-    setCentralWidget(timeTableDia);
-}
-
-void MainWindow::confShow(){
-    conf();
 }

@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QtWidgets>
+//#include "timetabledia.h"
 
 class TimeTable : public QWidget
 {
@@ -20,6 +21,30 @@ private:
     QFont *chemical;
 
     QDesktopWidget *desktop;
+    //TimeTableDia *timeTableDia;
+    QStackedLayout *stackedLayout;
+
+    /*timetable conf*/
+
+    QPushButton *ok;
+    QPushButton *cancel;
+    QVBoxLayout *formLayout;
+    QHBoxLayout *YNLayout;
+    QWidget *formWidget;
+
+    QTextEdit *subject;
+    QLabel *noticeOFLabel;
+    QCheckBox *noticeOF;
+
+    QHBoxLayout *noticeLayout;
+    QSpinBox *spinBox;
+    QLabel *minLabel;
+    QComboBox *comBox;
+    QLabel *noticeLabel;
+
+private slots:
+    void showForm();
+    void showSheet();
 };
 
 #endif // GRID_H

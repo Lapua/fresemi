@@ -1,4 +1,4 @@
-﻿#include "timetabledia.h"
+﻿/*#include "timetabledia.h"
 
 TimeTableDia::TimeTableDia(QWidget *parent) : QWidget(parent)
 {
@@ -16,7 +16,7 @@ TimeTableDia::TimeTableDia(QWidget *parent) : QWidget(parent)
     noticeLayout -> addWidget(spinBox);
     noticeLayout -> addWidget(minLabel);
     noticeLayout -> addWidget(comBox);
-    noticeLayout -> addWidget(noticeLabel);
+    noticeLayout -> addWidget(noticeLabel);*/
 
     /*ok = new QPushButton(tr("OK"));
     cancel = new QPushButton(tr("Cancel"));
@@ -24,10 +24,11 @@ TimeTableDia::TimeTableDia(QWidget *parent) : QWidget(parent)
     buttonLayout -> addWidget(ok);
     buttonLayout -> addWidget(cancel);
     */
-
+/*
     formLayout = new QFormLayout;
     formLayout -> addRow(subject);
     formLayout -> addRow(noticeOFLabel, noticeOF);
 
     setLayout(formLayout);
 }
+*/

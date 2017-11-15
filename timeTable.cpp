@@ -51,7 +51,56 @@ TimeTable::TimeTable(QWidget *parent)
     lec[2][3] -> setText("英語RW");
     lec[2][4] -> setText("解析学");
 
-    connect(lec[0][0],SIGNAL(clicked()),this,SLOT(MainWindow::confShow()));
+    sheetWidget = new QWidget;
+    sheetWidget -> setLayout(sheetLayout);
 
-    setLayout(sheetLayout);
+    /**timetable config*/
+
+    subject = new QTextEdit;
+    noticeOFLabel = new QLabel("通知する");
+    noticeOF = new QCheckBox;
+
+    spinBox = new QSpinBox;
+    minLabel = new QLabel("分");
+    comBox = new QComboBox;
+    comBox -> addItem("前");
+    comBox -> addItem("後");
+    noticeLabel = new QLabel("に通知する");
+    noticeLayout = new QHBoxLayout;
+    noticeLayout -> addWidget(spinBox);
+    noticeLayout -> addWidget(minLabel);
+    noticeLayout -> addWidget(comBox);
+    noticeLayout -> addWidget(noticeLabel);
+
+    ok = new QPushButton(tr("OK"));
+    cancel = new QPushButton(tr("Cancel"));
+    YNLayout = new QHBoxLayout;
+    YNLayout -> addWidget(ok);
+    YNLayout -> addWidget(cancel);
+
+    formLayout = new QVBoxLayout;
+    //formLayout -> addRow(subject);
+    formLayout -> addLayout(noticeLayout);
+    formLayout -> addLayout(YNLayout);
+    formWidget = new QWidget;
+    formWidget -> setLayout(formLayout);
+
+    /*stackedLayout*/
+
+    stackedLayout = new QStackedLayout;
+    stackedLayout -> addWidget(sheetWidget);
+    stackedLayout -> addWidget(formWidget);
+
+    connect(lec[0][0],SIGNAL(clicked()),this,SLOT(showForm()));
+    connect(ok,SIGNAL(clicked()),this,SLOT(showSheet()));
+
+    setLayout(stackedLayout);
+}
+
+void TimeTable::showForm(){
+    stackedLayout -> setCurrentWidget(formWidget);
+}
+
+void TimeTable::showSheet(){
+    stackedLayout -> setCurrentWidget(sheetWidget);
 }

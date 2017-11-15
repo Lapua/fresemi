@@ -3,7 +3,6 @@
 
 #include <QMainWindow>
 #include "timeTable.h"
-#include "timetabledia.h"
 #include "map.h"
 #include "board.h"
 
@@ -12,11 +11,10 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 public:
     MainWindow();
-    void conf();
 
 private:
     TimeTable *timeTable;
-    TimeTableDia *timeTableDia;
+    //TimeTableDia *timeTableDia;
     Board *board;
 
     QMenu *menu;
@@ -30,9 +28,6 @@ private:
 private slots:
     void timeTableShow();
     void boardShow();
-
-public slots:
-    static void confShow();
 };
 
 #endif // MAINWINDOW_H
