@@ -32,13 +32,14 @@ TimeTable::TimeTable(QWidget *parent)
             lec[i][j] = new QPushButton;
             lec[i][j] -> setFixedWidth((desktop -> width())/6);
             lec[i][j] -> setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
+            connect(lec[i][j],SIGNAL(clicked()),this,SLOT(showForm()));
             sheetLayout -> addWidget(lec[i][j],i+1,j+1);
         }
     }
 
     lec[0][0] -> setText("芸術論");
     lec[1][0] -> setText(" 化学 ");
-    lec[2][0] -> setText("情報リ　");
+    lec[2][0] -> setText(" 情報リ　");
     lec[3][0] -> setText(" 通信 ");
     lec[4][0] -> setText(" 通信 ");
     lec[0][1] -> setText("英語SL");
@@ -82,6 +83,7 @@ TimeTable::TimeTable(QWidget *parent)
     //formLayout -> addRow(subject);
     formLayout -> addLayout(noticeLayout);
     formLayout -> addLayout(YNLayout);
+    formLayout -> setGeometry((desktop -> height())/2,0,desktop -> width(),50);
     formWidget = new QWidget;
     formWidget -> setLayout(formLayout);
 
