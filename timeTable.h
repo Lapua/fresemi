@@ -1,4 +1,4 @@
-#ifndef GRID_H
+﻿#ifndef GRID_H
 #define GRID_H
 
 #include <QWidget>
@@ -20,8 +20,9 @@ private:
     QPushButton *lec[5][5];
     QFont *chemical;
 
+    QSizePolicy weekSize;
+    QSizePolicy timeSize;
     QDesktopWidget *desktop;
-    //TimeTableDia *timeTableDia;
     QStackedLayout *stackedLayout;
 
     /*timetable conf*/
@@ -31,6 +32,7 @@ private:
     QVBoxLayout *formLayout;
     QHBoxLayout *YNLayout;
     QWidget *formWidget;
+    QRect formRect;
 
     QTextEdit *subject;
     QLabel *noticeOFLabel;

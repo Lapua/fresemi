@@ -52,6 +52,15 @@ TimeTable::TimeTable(QWidget *parent)
     lec[2][3] -> setText("英語RW");
     lec[2][4] -> setText("解析学");
 
+    //weekSize = QSizePolicy;
+    //timeSize = QSizePolicy;
+    weekSize = week[0] -> sizePolicy();
+    timeSize = time[0] -> sizePolicy();
+    weekSize.setHorizontalStretch(1);
+    timeSize.setHorizontalStretch(1);
+    week[0] -> setSizePolicy(weekSize);
+    time[0] -> setSizePolicy(timeSize);
+
     sheetWidget = new QWidget;
     sheetWidget -> setLayout(sheetLayout);
 
@@ -79,11 +88,12 @@ TimeTable::TimeTable(QWidget *parent)
     YNLayout -> addWidget(ok);
     YNLayout -> addWidget(cancel);
 
+    formRect = QRect((desktop -> height())/2,0,desktop -> width(),50);
     formLayout = new QVBoxLayout;
     //formLayout -> addRow(subject);
     formLayout -> addLayout(noticeLayout);
     formLayout -> addLayout(YNLayout);
-    formLayout -> setGeometry((desktop -> height())/2,0,desktop -> width(),50);
+    formLayout -> setGeometry(formRect);
     formWidget = new QWidget;
     formWidget -> setLayout(formLayout);
 
