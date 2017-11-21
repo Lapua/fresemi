@@ -39,3 +39,6 @@ HEADERS += \
 CONFIG += mobility
 MOBILITY = 
 
+RESOURCES += \
+    image.qrc
+
