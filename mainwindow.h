@@ -2,8 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "home.h"
 #include "timeTable.h"
-#include "map.h"
 #include "board.h"
 
 class MainWindow : public QMainWindow
@@ -14,10 +14,11 @@ public:
 
 private:
     TimeTable *timeTable;
-    //TimeTableDia *timeTableDia;
     Board *board;
+    Home *home;
 
     QMenu *menu;
+    QAction *homeAct;
     QAction *timeTableAct;
     QAction *boardAct;
 
@@ -26,6 +27,7 @@ private:
 
 
 private slots:
+    void homeShow();
     void timeTableShow();
     void boardShow();
 };

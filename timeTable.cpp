@@ -93,6 +93,8 @@ TimeTable::TimeTable(QWidget *parent)
     YNLayout = new QHBoxLayout;
     YNLayout -> addWidget(ok);
     YNLayout -> addWidget(cancel);
+    connect(ok,SIGNAL(clicked()),this,SLOT(showSheet()));
+    connect(cancel,SIGNAL(clicked()),this,SLOT(showSheet()));
 
     formLayout = new QVBoxLayout;
     formLayout -> addStretch();
@@ -109,8 +111,6 @@ TimeTable::TimeTable(QWidget *parent)
     stackedLayout = new QStackedLayout;
     stackedLayout -> addWidget(sheetWidget);
     stackedLayout -> addWidget(formWidget);
-
-    connect(ok,SIGNAL(clicked()),this,SLOT(showSheet()));
 
     setLayout(stackedLayout);
 }

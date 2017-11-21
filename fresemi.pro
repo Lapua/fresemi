@@ -25,16 +25,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-    map.cpp \
     timeTable.cpp \
     mainwindow.cpp \
-    board.cpp
+    board.cpp \
+    home.cpp
 
 HEADERS += \
-    map.h \
     timeTable.h \
     mainwindow.h \
-    board.h
+    board.h \
+    home.h
 
 CONFIG += mobility
 MOBILITY = 
