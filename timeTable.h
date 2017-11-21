@@ -22,8 +22,8 @@ private:
 
     QSizePolicy weekSize;
     QSizePolicy timeSize;
-    QDesktopWidget *desktop;
     QStackedLayout *stackedLayout;
+    QDesktopWidget *desktop;
 
     /*timetable conf*/
 
@@ -32,9 +32,8 @@ private:
     QVBoxLayout *formLayout;
     QHBoxLayout *YNLayout;
     QWidget *formWidget;
-    QRect formRect;
 
-    QTextEdit *subject;
+    QHBoxLayout *noticeOFLayout;
     QLabel *noticeOFLabel;
     QCheckBox *noticeOF;
 

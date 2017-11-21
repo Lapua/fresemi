@@ -3,6 +3,7 @@
 TimeTable::TimeTable(QWidget *parent)
     : QWidget(parent)
 {
+    desktop = new QDesktopWidget;
     sheetLayout = new QGridLayout;
     for(int i=0; i<5; i++){
         time[i] = new QLabel(QString::number(i+1));
@@ -13,7 +14,6 @@ TimeTable::TimeTable(QWidget *parent)
         sheetLayout -> addWidget(time[i],i+1,0);
     }
 
-    desktop = new QDesktopWidget;
     week[0] = new QLabel("月");
     week[1] = new QLabel("火");
     week[2] = new QLabel("水");
@@ -52,8 +52,6 @@ TimeTable::TimeTable(QWidget *parent)
     lec[2][3] -> setText("英語RW");
     lec[2][4] -> setText("解析学");
 
-    //weekSize = QSizePolicy;
-    //timeSize = QSizePolicy;
     weekSize = week[0] -> sizePolicy();
     timeSize = time[0] -> sizePolicy();
     weekSize.setHorizontalStretch(1);
@@ -66,17 +64,25 @@ TimeTable::TimeTable(QWidget *parent)
 
     /**timetable config*/
 
-    subject = new QTextEdit;
-    noticeOFLabel = new QLabel("通知する");
+    noticeOFLabel = new QLabel("<h1>通知する</h1>");
     noticeOF = new QCheckBox;
+    noticeOFLayout = new QHBoxLayout;
+    noticeOFLayout -> addWidget(noticeOFLabel);
+    noticeOFLayout -> setAlignment(noticeOFLabel,Qt::AlignRight);
+    noticeOFLayout -> addWidget(noticeOF);
+    noticeOFLayout -> setAlignment(noticeOF,Qt::AlignHCenter);
 
     spinBox = new QSpinBox;
-    minLabel = new QLabel("分");
+    spinBox -> setAlignment(Qt::AlignHCenter);
+    minLabel = new QLabel("<h1>分</h1>");
+    minLabel -> setAlignment(Qt::AlignHCenter);
     comBox = new QComboBox;
-    comBox -> addItem("前");
-    comBox -> addItem("後");
-    noticeLabel = new QLabel("に通知する");
+    comBox -> addItem("            前");
+    comBox -> addItem("            後");
+    noticeLabel = new QLabel("<h1>に通知する</h1>");
+    noticeLabel -> setAlignment(Qt::AlignHCenter);
     noticeLayout = new QHBoxLayout;
+    noticeLayout -> setAlignment(Qt::AlignVCenter);
     noticeLayout -> addWidget(spinBox);
     noticeLayout -> addWidget(minLabel);
     noticeLayout -> addWidget(comBox);
@@ -88,12 +94,13 @@ TimeTable::TimeTable(QWidget *parent)
     YNLayout -> addWidget(ok);
     YNLayout -> addWidget(cancel);
 
-    formRect = QRect((desktop -> height())/2,0,desktop -> width(),50);
     formLayout = new QVBoxLayout;
-    //formLayout -> addRow(subject);
+    formLayout -> addStretch();
+    formLayout -> addLayout(noticeOFLayout);
     formLayout -> addLayout(noticeLayout);
+    formLayout -> addStretch();
     formLayout -> addLayout(YNLayout);
-    formLayout -> setGeometry(formRect);
+    formLayout -> addStretch();
     formWidget = new QWidget;
     formWidget -> setLayout(formLayout);
 
@@ -103,7 +110,6 @@ TimeTable::TimeTable(QWidget *parent)
     stackedLayout -> addWidget(sheetWidget);
     stackedLayout -> addWidget(formWidget);
 
-    connect(lec[0][0],SIGNAL(clicked()),this,SLOT(showForm()));
     connect(ok,SIGNAL(clicked()),this,SLOT(showSheet()));
 
     setLayout(stackedLayout);

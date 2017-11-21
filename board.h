@@ -11,6 +11,8 @@ public:
     explicit Board(QWidget *parent = nullptr);
 
 private:
+    QDesktopWidget *desktop;
+    QPixmap image;
     QLabel *label;
     QVBoxLayout *mainLayout;
     QScrollArea *scrollBar;

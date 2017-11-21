@@ -2,7 +2,11 @@
 
 Board::Board(QWidget *parent) : QWidget(parent)
 {
-    label = new QLabel("<h1>質問掲示板かっこかり~~><br>endl</h1>");
+    desktop = new QDesktopWidget;
+    image = QPixmap("://images/board.png");
+    label = new QLabel;
+    label -> setPixmap(image);
+    label -> setPixmap(image.scaledToWidth(desktop -> width()-100));
     scrollBar = new QScrollArea;
     scrollBar -> setWidget(label);
     mainLayout = new QVBoxLayout;
